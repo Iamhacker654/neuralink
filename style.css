@@ -1,0 +1,106 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.content {
+  max-width: 600px;
+}
+
+h1 {
+  font-size: 4rem;
+  position: relative;
+  color: #fff;
+}
+
+.glitch {
+  color: white;
+  position: relative;
+  animation: glitch 2s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+}
+
+.glitch::before {
+  color: #0ff;
+  animation: glitchTop 2s infinite;
+  z-index: -1;
+}
+
+.glitch::after {
+  color: #f0f;
+  animation: glitchBottom 2s infinite;
+  z-index: -2;
+}
+
+@keyframes glitch {
+  0% { transform: none; }
+  20% { transform: skew(0.5deg); }
+  40% { transform: skew(-0.5deg); }
+  60% { transform: skew(0.8deg); }
+  80% { transform: skew(-0.8deg); }
+  100% { transform: none; }
+}
+
+@keyframes glitchTop {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-2px, -2px); }
+  20% { transform: translate(-3px, 2px); }
+  30% { transform: translate(1px, -1px); }
+  40% { transform: translate(-1px, 2px); }
+  50% { transform: translate(-3px, -1px); }
+}
+
+@keyframes glitchBottom {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(2px, 2px); }
+  20% { transform: translate(3px, -2px); }
+  30% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -2px); }
+  50% { transform: translate(3px, 1px); }
+}
+
+.tagline {
+  font-size: 1.25rem;
+  margin: 1rem 0 2rem;
+  color: #ccc;
+}
+
+.cta {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: #0ff;
+  color: #000;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.cta:hover {
+  background: #0cc;
+}
